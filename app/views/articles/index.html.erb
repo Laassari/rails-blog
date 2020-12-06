@@ -1,0 +1,16 @@
+<%if flash[:notice]%>
+<span class="bg-green-100 text-green-600 p-3 inline-block  mt-5"><%=  flash[:notice] %></span>
+<%end%>
+
+<div class="flex justify-between my-5">
+  <span class="text-2xl">Articles</span>
+  <%= link_to 'New article', new_article_path, class: "text-xl bg-green-600 text-white py-1 px-2 rounded hover:underline" %>
+</div>
+
+<div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
+  <%  @articles.each do |article| %>
+    <div class="w-full max-w-sm mx-auto">
+      <%= render article %>
+    </div>
+  <%  end %>
+</div>

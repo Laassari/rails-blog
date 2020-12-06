@@ -1,0 +1,14 @@
+<nav class="flex justify-between p-3 bg-gray-100">
+  <a href="/">Home</a>
+
+  <ul class="flex">
+    <li class="px-3 capitalize hover:underline"><a href="/articles">articles</a></li>
+    <li class="px-3 capitalize hover:underline"><a href="/about">about</a></li>
+    <% if current_user%>
+    <li class="px-3 capitalize hover:underline"><a href="/profile">profile</a></li>
+    <% else%>
+    <li class="px-3 capitalize hover:underline"><a href="/signup">signup</a></li>
+    <li class="px-3 capitalize hover:underline"><a href="/login">Login</a></li>
+    <% end%>
+  </ul>
+</nav>

@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Blog</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>Blog</title>
+  <%= csrf_meta_tags %>
 
-  <body>
-    <%= yield %>
-  </body>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css' %>
+</head>
+
+<body>
+  <%= render 'layouts/nav' %>
+  <main class="max-w-screen-2xl mx-auto"><%= yield %></main>
+</body>
+
 </html>

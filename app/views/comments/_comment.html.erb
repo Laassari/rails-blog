@@ -1,0 +1,14 @@
+<div class="border-l-4 ml-2 p-2 mb-5">
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
+
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+  <p>
+    <%= link_to 'Delete', [comment.article, comment], method: :delete, class: "text-red-500 mt-1" %>
+  </p>
+</div>
