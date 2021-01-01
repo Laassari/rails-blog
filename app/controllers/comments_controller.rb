@@ -1,10 +1,16 @@
 class CommentsController < ApplicationController
+  before_action :check_authenticity, except: %i[index show]
+
   def show; end
 
   def create
     article = Article.find params[:article_id]
 
-    @comment = article.comments.create(comment_params)
+    @comment = article.comments.create(
+      commenter: comment_params[:commenter],
+      body: comment_params[:body],
+      user_id: helpers.current_user.id
+    )
 
     redirect_to article
   end
@@ -20,5 +26,9 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:body, :commenter)
+  end
+
+  def check_authenticity
+    redirect_to :signup_page unless helpers.current_user
   end
 end

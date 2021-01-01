@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   delete '/login', to: 'login#destroy'
   put '/signup', to: 'users#update'
 
-  get '/signup', to: 'users#new'
+  get '/signup', to: 'users#new', as: 'signup_page'
   post '/signup', to: 'users#create'
   get '/profile', to: 'users#show'
 
