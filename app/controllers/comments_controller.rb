@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     @comment = article.comments.create(
       commenter: comment_params[:commenter],
       body: comment_params[:body],
-      user_id: helpers.current_user.id
+      user_id: current_user.id
     )
 
     redirect_to article
@@ -29,6 +29,6 @@ class CommentsController < ApplicationController
   end
 
   def check_authenticity
-    redirect_to :signup_page unless helpers.current_user
+    redirect_to :signup_page unless current_user
   end
 end

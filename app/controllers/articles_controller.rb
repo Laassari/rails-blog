@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
   def new; end
 
   def create
-    @article = helpers.current_user.articles.new(article_params)
+    @article = current_user.articles.new(article_params)
 
     if @article.save
       redirect_to @article, notice: 'The article has been created succesfully'
@@ -49,6 +49,6 @@ class ArticlesController < ApplicationController
   end
 
   def check_authenticity
-    redirect_to :signup_page unless helpers.current_user
+    redirect_to :signup_page unless current_user
   end
 end

@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = helpers.current_user
+    @user = current_user
   end
 
   def create
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = helpers.current_user
+    @user = current_user
 
     if @user.update(user_params)
       redirect_to :root
