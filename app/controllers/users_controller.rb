@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :check_authenticity, except: %i[new create]
+
   def new
     @user = User.new
   end
@@ -14,7 +16,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to :root
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -32,5 +34,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :email, :password)
+  end
+
+  def check_authenticity
+    redirect_to :signup_page unless current_user
   end
 end
