@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :check_authenticity, except: %i[index show]
+  before_action :check_authenticity!, except: %i[index show]
 
   def show; end
 
@@ -26,9 +26,5 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:body, :commenter)
-  end
-
-  def check_authenticity
-    redirect_to :signup_page unless current_user
   end
 end

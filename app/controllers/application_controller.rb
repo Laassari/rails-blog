@@ -3,4 +3,8 @@ class ApplicationController < ActionController::Base
     user ||= User.find_by(id: session[:user_id]) if session[:user_id]
     user
   end
+
+  def check_authenticity!
+    redirect_to :signup_page unless current_user
+  end
 end

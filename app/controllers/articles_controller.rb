@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ArticlesController < ApplicationController
-  before_action :check_authenticity, except: %i[index show]
+  before_action :check_authenticity!, except: %i[index show]
   before_action :set_article, only: %i[show update edit destroy]
 
   def index
@@ -46,9 +46,5 @@ class ArticlesController < ApplicationController
 
   def set_article
     @article ||= Article.find params[:id]
-  end
-
-  def check_authenticity
-    redirect_to :signup_page unless current_user
   end
 end
