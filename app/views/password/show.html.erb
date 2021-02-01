@@ -1,0 +1,16 @@
+<p class="my-3 text-xl">You'll receive an email with a link to reset your password</p>
+
+<%= form_with(url: forgot_password_path, local: true) do |form| %>
+<p class="mb-5">
+  <%= form.label :email, class: "mb-1 inline-block" %><br>
+  <%= form.text_field :email, type: "email", class: "border rounded py-1 px-2" %>
+</p>
+
+<p>
+  <%= form.submit 'Reset my password', class: "mb-3 bg-green-400 text-white px-2 py-1 rounded" %>
+</p>
+<% end %>
+
+<%if flash[:notice]%>
+  <span class="bg-green-100 text-green-600 p-3 inline-block  mt-5"><%=  flash[:notice] %></span>
+<%end%>
