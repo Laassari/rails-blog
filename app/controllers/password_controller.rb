@@ -1,10 +1,6 @@
 class PasswordController < ApplicationController
   def show; end
 
-  def reset
-    render :reset
-  end
-
   def create
     @user = User.find_by(email: params[:email])
 
@@ -12,6 +8,16 @@ class PasswordController < ApplicationController
 
     flash.now[:notice] = 'An email was sent with a link to reset your password'
     render :show
+  end
+
+  def reset
+    @user = User.find_signed(params[:token], purpose: 'password_reset')
+
+    if @user.present?
+      render :reset
+    else
+      redirect_to root_path
+    end
   end
 
   def update
@@ -28,6 +34,7 @@ class PasswordController < ApplicationController
   end
 
   private
+
   def password_params
     params.require(:password).permit(:password, :email)
   end
