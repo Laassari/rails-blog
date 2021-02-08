@@ -1,10 +1,6 @@
 <%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
 <p class="mb-5">
-  <%= form.label :commenter,  class: "mb-1 inline-block" %><br>
-  <%= form.text_field :commenter ,class: "border rounded py-1 px-2" %>
-</p>
-<p class="mb-5">
-  <%= form.label :body,  class: "mb-1 inline-block" %><br>
+  <%= form.label 'New comment',  class: "mb-1 inline-block" %><br>
   <%= form.text_area :body ,class: "border rounded py-1 px-2" %>
 </p>
 <p>

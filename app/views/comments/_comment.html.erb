@@ -1,11 +1,6 @@
 <div class="border-l-4 ml-2 p-2 mb-5">
   <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
-
-  <p>
-    <strong>Comment:</strong>
+    <strong><%= comment.user.username %>:</strong>
     <%= comment.body %>
   </p>
   <p>
