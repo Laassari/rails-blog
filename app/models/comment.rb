@@ -3,4 +3,8 @@ class Comment < ApplicationRecord
   
   belongs_to :user
   belongs_to :article
+
+  def author?(target_user)
+    target_user == user
+  end
 end
