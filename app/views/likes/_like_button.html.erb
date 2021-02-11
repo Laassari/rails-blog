@@ -1,0 +1,8 @@
+<% user_has_liked_resource = current_user&.liked?(resource) %>
+<% like = current_user&.like(resource) || Like %>
+<% method = user_has_liked_resource ? :delete : :post %>
+<% action = user_has_liked_resource ? 'Liked' : 'Like' %>
+
+<%= form_with model: [resource, like], method: method, local: true do |form| %>
+  <%= form.submit "#{action} (#{resource.likes_count})", class: 'px-4 py-1 bg-gray-200 rounded border border-gray-200 inline-block cursor-pointer' %>
+<% end %>

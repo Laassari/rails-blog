@@ -16,6 +16,10 @@
   <%= image_tag(url_for(@article.image)) if @article.image.attached? %>
   <p class="text-gray-700 my-3 whitespace-pre-line"><%= @article.text %></p>
 
+  <div class="mb-3">
+    <%= render 'likes/like_button', resource: @article %>
+  </div>
+
   <h3 class="text-2xl capitalize mb-3 text-gray-700">comments</h3>
   <% if @article.comments.count == 0 %>
   <p class="text-gray-500">No commments</p>
