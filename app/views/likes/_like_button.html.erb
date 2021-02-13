@@ -1,4 +1,4 @@
-<% user_has_liked_resource = current_user&.liked?(resource) %>
+<% user_has_liked_resource = current_user&.already_liked?(resource) %>
 <% like = current_user&.like(resource) || Like %>
 <% method = user_has_liked_resource ? :delete : :post %>
 <% action = user_has_liked_resource ? 'Liked' : 'Like' %>

@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 8 }
   validates :username, presence: true, uniqueness: true
 
-  def liked?(resource)
+  def already_liked?(resource)
     return false unless resource.respond_to? :likes
     return false unless self.present?
 

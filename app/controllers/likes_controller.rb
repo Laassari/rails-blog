@@ -3,7 +3,7 @@ class LikesController < ApplicationController
   before_action :set_article, only: %i[create destroy]
 
   def create
-    liked = current_user.liked?(@article)
+    liked = current_user.already_liked?(@article)
 
     unless liked
       @article.likes.create('user_id': current_user.id)
