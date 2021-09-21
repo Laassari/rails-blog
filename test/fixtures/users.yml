@@ -2,4 +2,4 @@ user1:
   id: 1
   email: email@email.com
   username: username
-  passowrd: password
+  password_digest: password
